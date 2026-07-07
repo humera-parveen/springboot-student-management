@@ -5,6 +5,10 @@ import com.student.dto.StudentResponse;
 import com.student.entity.Student;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Component
 public class StudentMapper {
     public Student mapToEntity(StudentRequest studentRequest) {
@@ -27,4 +31,24 @@ public class StudentMapper {
         studentResponse.setFees(student.getFees());
         return studentResponse;
     }
+
+    public List<StudentResponse> mapToAll(List<Student> student) {
+        List<StudentResponse> studentList = new ArrayList<>();
+        for (Student student1 : student) {
+            StudentResponse studentResponse = mapToResponse(student1);
+            studentList.add(studentResponse);
+        }
+        return studentList;
+    }
+
+    public void updateEntity(StudentRequest request, Student student) {
+        student.setStudentName(request.getStudentName());
+        student.setEmail(request.getEmail());
+        student.setCollege(request.getCollege());
+        student.setCourse(request.getCourse());
+        student.setFees(request.getFees());
+
+    }
 }
+
+
