@@ -1,10 +1,19 @@
 package com.student.dto;
 
+import jakarta.validation.constraints.*;
+
 public class StudentRequest {
+    @NotNull(message = "Student Name Should Not be null")
     private String studentName;
+    @Email(message = "Enter Valid Email Address")
+    @NotBlank
     private String email;
+    @NotBlank(message = "Course is Required")
     private String course;
+    @Min(message = "Minimum fees is 40000", value = 40000)
+    @Max(message = "Maximum fees is 70000", value = 70000)
     private int fees;
+    @NotBlank(message = "College is Required")
     private String college;
 
     public StudentRequest(String studentName, String email, String course, int fees, String college) {
