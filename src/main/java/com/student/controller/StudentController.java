@@ -6,6 +6,7 @@ import com.student.exception.StudentNotFoundException;
 import com.student.serviceImpl.StudentServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,19 @@ public class StudentController {
         if (studentList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+        return ResponseEntity.ok(studentList);
+    }
+
+    @GetMapping("/getAllBySort")
+    public ResponseEntity<Page<StudentResponse>> getAllStudentBySort(
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam String sortBy,
+            @RequestParam String direction,
+            @RequestParam String search) {
+
+
+        Page<StudentResponse> studentList = studentService.getAllStudent(page, size, sortBy, direction, search);
         return ResponseEntity.ok(studentList);
     }
 
