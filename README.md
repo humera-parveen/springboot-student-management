@@ -85,11 +85,6 @@ src
 
 The following features will be implemented as part of this learning project:
 
-- Bean Validation
-- Global Exception Handling
-- Custom Exceptions
-- Pagination & Sorting
-- Search and Filter APIs
 - Logging (SLF4J / Logback)
 - Swagger / OpenAPI Documentation
 - Spring Security
@@ -109,7 +104,7 @@ The following features will be implemented as part of this learning project:
 - ✅ DTO
 - ✅ Manual Mapper
 - ✅ ResponseEntity
-- ⏳ Bean Validation
+- ✅ Bean Validation
 - ⏳ Spring Security
 - ⏳ JWT Authentication
 
